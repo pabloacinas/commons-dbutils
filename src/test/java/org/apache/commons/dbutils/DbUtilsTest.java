@@ -84,18 +84,8 @@ public class DbUtilsTest {
 
     @Test
 	public void testCloseNullConnection() throws Exception {
-    // Ejecuta el método close con null
-    //DbUtils.close((Connection) null);
-    
-    // Aquí no hay mucho que verificar en términos de resultados, 
-    // pero podrías verificar que no se ha lanzado ninguna excepción
-    // o simplemente indicar que el método fue ejecutado sin errores.
-    // En este caso, no esperamos ningún cambio o acción observable.
-    // Entonces, solo comprobamos que no haya errores en el proceso.
-    // Una opción es usar assertDoesNotThrow (si estás usando JUnit 5):
-    
     assertDoesNotThrow(() -> DbUtils.close((Connection) null));
-}
+    }
 
     @Test
     public void testCloseNullResultSet() throws Exception {
