@@ -715,6 +715,7 @@ public class QueryRunnerTest {
         final MyBean bean = new MyBean();
         when(meta.getParameterCount()).thenReturn(3);
         runner.fillStatementWithBean(prepStmt, bean, "a", "b", "c");
+        assertEquals(3, meta.getParameterCount());	
     }
 
     @Test

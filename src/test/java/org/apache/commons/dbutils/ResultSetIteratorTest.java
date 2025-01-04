@@ -39,6 +39,12 @@ public class ResultSetIteratorTest extends BaseTestCase {
         final ResultSet resultSet = mock(ResultSet.class);
         final ResultSetIterator resultSetIterator = new ResultSetIterator(resultSet, null);
         resultSetIterator.remove();
+        try {
+             resultSetIterator.remove();
+             assertTrue(true);
+        } catch (Exception e) {
+        fail("remove() method threw an exception: " + e.getMessage());
+    }
 
     }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.apache.commons.dbutils.QueryRunnerTest" time="0.249" tests="57" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.apache.commons.dbutils.QueryRunnerTest" time="0.214" tests="57" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="19"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="ES"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-19\bin"/>
-    <property name="sun.java.command" value="C:\Users\Usuario\AppData\Local\Temp\surefire10094653732078665591\surefirebooter-20250104125829492_3.jar C:\Users\Usuario\AppData\Local\Temp\surefire10094653732078665591 2025-01-04T12-58-29_402-jvmRun1 surefire-20250104125829492_1tmp surefire_0-20250104125829492_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\Usuario\AppData\Local\Temp\surefire15506001957716704077\surefirebooter-20250104132849221_3.jar C:\Users\Usuario\AppData\Local\Temp\surefire15506001957716704077 2025-01-04T13-28-49_086-jvmRun1 surefire-20250104132849221_1tmp surefire_0-20250104132849221_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Usuario\git\commons-dbutils\target\test-classes;C:\Users\Usuario\git\commons-dbutils\target\classes;C:\Users\Usuario\.m2\repository\org\junit\jupiter\junit-jupiter\5.11.2\junit-jupiter-5.11.2.jar;C:\Users\Usuario\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.2\junit-jupiter-api-5.11.2.jar;C:\Users\Usuario\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Usuario\.m2\repository\org\junit\platform\junit-platform-commons\1.11.2\junit-platform-commons-1.11.2.jar;C:\Users\Usuario\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Usuario\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.2\junit-jupiter-params-5.11.2.jar;C:\Users\Usuario\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.2\junit-jupiter-engine-5.11.2.jar;C:\Users\Usuario\.m2\repository\org\junit\platform\junit-platform-engine\1.11.2\junit-platform-engine-1.11.2.jar;C:\Users\Usuario\.m2\repository\org\mockito\mockito-junit-jupiter\5.15.2\mockito-junit-jupiter-5.15.2.jar;C:\Users\Usuario\.m2\repository\org\mockito\mockito-core\5.15.2\mockito-core-5.15.2.jar;C:\Users\Usuario\.m2\repository\net\bytebuddy\byte-buddy\1.15.11\byte-buddy-1.15.11.jar;C:\Users\Usuario\.m2\repository\net\bytebuddy\byte-buddy-agent\1.15.11\byte-buddy-agent-1.15.11.jar;C:\Users\Usuario\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\Usuario\.m2\repository\org\apache\commons\commons-lang3\3.17.0\commons-lang3-3.17.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\Usuario\AppData\Local\Temp\surefire10094653732078665591\surefirebooter-20250104125829492_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Usuario\AppData\Local\Temp\surefire15506001957716704077\surefirebooter-20250104132849221_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="19.0.2+7-44"/>
@@ -58,40 +58,40 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="63.0"/>
   </properties>
-  <testcase name="testNoParamsUpdate" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.015"/>
-  <testcase name="testFillStatementWithBean" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.0"/>
-  <testcase name="testStatementConfiguration" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.016"/>
-  <testcase name="testNullHandlerQuery" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.0"/>
-  <testcase name="testNoParamsExecuteWithResultSet" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.0"/>
-  <testcase name="testGoodExecute" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.015"/>
-  <testcase name="testGoodInsert" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.0"/>
-  <testcase name="testGoodExecuteWithResultSetPmdTrue" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.0"/>
-  <testcase name="testGoodUpdatePmdTrue" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.016"/>
-  <testcase name="testExecuteUpdateException" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.0"/>
-  <testcase name="testNoParamsExecute" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.0"/>
-  <testcase name="testGoodUpdate" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.016"/>
-  <testcase name="testGoodBatchInsert" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.0"/>
-  <testcase name="testBadPrepareConnection" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.007"/>
-  <testcase name="testFillStatementWithBeanNullNames" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.0"/>
-  <testcase name="testGoodQueryPmdTrue" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.009"/>
-  <testcase name="testTooManyParamsExecuteWithResultSet" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.0"/>
-  <testcase name="testAddBatchExceptionOnAdd" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.0">
+  <testcase name="testNoParamsUpdate" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.005"/>
+  <testcase name="testFillStatementWithBean" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.006"/>
+  <testcase name="testStatementConfiguration" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.004"/>
+  <testcase name="testNullHandlerQuery" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
+  <testcase name="testNoParamsExecuteWithResultSet" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
+  <testcase name="testGoodExecute" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.006"/>
+  <testcase name="testGoodInsert" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
+  <testcase name="testGoodExecuteWithResultSetPmdTrue" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.005"/>
+  <testcase name="testGoodUpdatePmdTrue" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.004"/>
+  <testcase name="testExecuteUpdateException" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
+  <testcase name="testNoParamsExecute" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.005"/>
+  <testcase name="testGoodUpdate" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
+  <testcase name="testGoodBatchInsert" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.004"/>
+  <testcase name="testBadPrepareConnection" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
+  <testcase name="testFillStatementWithBeanNullNames" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
+  <testcase name="testGoodQueryPmdTrue" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
+  <testcase name="testTooManyParamsExecuteWithResultSet" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.002"/>
+  <testcase name="testAddBatchExceptionOnAdd" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.002">
     <system-out><![CDATA[[TEST] The following exception is expected:
 java.sql.SQLException:  Query: select * from blah where ? = ? Parameters: [[unit, unit], [test, test]]
 ]]></system-out>
   </testcase>
-  <testcase name="testGoodUpdateDefaultConstructor" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.0"/>
-  <testcase name="testNullConnectionBatch" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.017"/>
-  <testcase name="testNullConnectionQuery" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.0"/>
-  <testcase name="testGoodExecutePmdTrue" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.0"/>
-  <testcase name="testNullConnectionExecuteWithResultSet" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.0"/>
-  <testcase name="testTooManyParamsBatch" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.017">
+  <testcase name="testGoodUpdateDefaultConstructor" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
+  <testcase name="testNullConnectionBatch" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
+  <testcase name="testNullConnectionQuery" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
+  <testcase name="testGoodExecutePmdTrue" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.004"/>
+  <testcase name="testNullConnectionExecuteWithResultSet" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.002"/>
+  <testcase name="testTooManyParamsBatch" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003">
     <system-out><![CDATA[[TEST] The following exception is expected:
 java.sql.SQLException: Wrong number of parameters: expected 2, was given 3 Query: select * from blah where ? = ? Parameters: [[unit, unit, unit], [test, test, test]]
 ]]></system-out>
   </testcase>
-  <testcase name="testNullSqlBatch" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
-  <testcase name="testTooManyParamsQuery" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.002"/>
+  <testcase name="testNullSqlBatch" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.004"/>
+  <testcase name="testTooManyParamsQuery" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
   <testcase name="testNullSqlQuery" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
   <testcase name="testTooFewParamsBatch" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003">
     <system-out><![CDATA[[TEST] The following exception is expected:
@@ -99,36 +99,36 @@ java.sql.SQLException: Wrong number of parameters: expected 2, was given 1 Query
 ]]></system-out>
   </testcase>
   <testcase name="testTooFewParamsQuery" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
-  <testcase name="testNullSqlExecuteWithResultSet" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.005"/>
-  <testcase name="testNoParamsQuery" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.005"/>
-  <testcase name="testTooManyParamsUpdate" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
-  <testcase name="testNullParamsArgBatch" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.004"/>
-  <testcase name="testExecuteBatchExceptionOnExec" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.004">
+  <testcase name="testNullSqlExecuteWithResultSet" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.002"/>
+  <testcase name="testNoParamsQuery" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
+  <testcase name="testTooManyParamsUpdate" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.002"/>
+  <testcase name="testNullParamsArgBatch" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
+  <testcase name="testExecuteBatchExceptionOnExec" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003">
     <system-out><![CDATA[[TEST] The following exception is expected:
 java.sql.SQLException:  Query: select * from blah where ? = ? Parameters: [[unit, unit], [test, test]]
 ]]></system-out>
   </testcase>
-  <testcase name="testGoodExecuteDefaultConstructor" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.007"/>
-  <testcase name="testGoodBatchDefaultConstructor" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.004"/>
-  <testcase name="testTooFewParamsExecuteWithResultSet" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
+  <testcase name="testGoodExecuteDefaultConstructor" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.005"/>
+  <testcase name="testGoodBatchDefaultConstructor" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
+  <testcase name="testTooFewParamsExecuteWithResultSet" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.002"/>
   <testcase name="testNullConnectionUpdate" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
-  <testcase name="testNullSqlUpdate" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
+  <testcase name="testNullSqlUpdate" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.004"/>
   <testcase name="testNullHandlerExecuteWithResultSet" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.004"/>
-  <testcase name="testGoodExecuteWithResultSet" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.009"/>
-  <testcase name="testExecuteWithMultipleResultSets" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.005"/>
-  <testcase name="testNullHandlerExecute" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
-  <testcase name="testTooManyParamsExecute" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.002"/>
+  <testcase name="testGoodExecuteWithResultSet" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.006"/>
+  <testcase name="testExecuteWithMultipleResultSets" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.006"/>
+  <testcase name="testNullHandlerExecute" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.004"/>
+  <testcase name="testTooManyParamsExecute" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
   <testcase name="testTooFewParamsExecute" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
   <testcase name="testNullConnectionExecute" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.004"/>
-  <testcase name="testExecuteQueryException" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.002"/>
-  <testcase name="testExecuteWithResultSetException" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.002"/>
-  <testcase name="testTooFewParamsUpdate" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
+  <testcase name="testExecuteQueryException" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
+  <testcase name="testExecuteWithResultSetException" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
+  <testcase name="testTooFewParamsUpdate" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.002"/>
   <testcase name="testNullSqlExecute" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
   <testcase name="testGoodExecuteWithResultSetDefaultConstructor" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.005"/>
   <testcase name="testExecuteException" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.002"/>
-  <testcase name="testNullParamsBatch" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.004"/>
-  <testcase name="testGoodBatch" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.0"/>
-  <testcase name="testGoodQueryDefaultConstructor" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.0"/>
-  <testcase name="testGoodQuery" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.0"/>
-  <testcase name="testGoodBatchPmdTrue" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.0"/>
+  <testcase name="testNullParamsBatch" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
+  <testcase name="testGoodBatch" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
+  <testcase name="testGoodQueryDefaultConstructor" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.002"/>
+  <testcase name="testGoodQuery" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
+  <testcase name="testGoodBatchPmdTrue" classname="org.apache.commons.dbutils.QueryRunnerTest" time="0.003"/>
 </testsuite>
