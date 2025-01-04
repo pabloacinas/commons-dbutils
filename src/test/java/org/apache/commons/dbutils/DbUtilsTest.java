@@ -89,12 +89,13 @@ public class DbUtilsTest {
 
     @Test
     public void testCloseNullResultSet() throws Exception {
-        DbUtils.close((ResultSet) null);
+    assertDoesNotThrow(() -> DbUtils.close((ResultSet) null));
     }
 
     @Test
     public void testCloseNullStatement() throws Exception {
-        DbUtils.close((Statement) null);
+            assertDoesNotThrow(() -> DbUtils.close((Statement) null));
+
     }
 
     @Test
