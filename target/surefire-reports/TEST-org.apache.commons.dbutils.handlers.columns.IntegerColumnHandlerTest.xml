@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.apache.commons.dbutils.handlers.columns.IntegerColumnHandlerTest" time="0.016" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.apache.commons.dbutils.handlers.columns.IntegerColumnHandlerTest" time="0.0" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="19"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="ES"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-19\bin"/>
-    <property name="sun.java.command" value="C:\Users\Usuario\AppData\Local\Temp\surefire1988665483691675966\surefirebooter-20250104124610263_3.jar C:\Users\Usuario\AppData\Local\Temp\surefire1988665483691675966 2025-01-04T12-46-10_169-jvmRun1 surefire-20250104124610263_1tmp surefire_0-20250104124610263_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\Usuario\AppData\Local\Temp\surefire10094653732078665591\surefirebooter-20250104125829492_3.jar C:\Users\Usuario\AppData\Local\Temp\surefire10094653732078665591 2025-01-04T12-58-29_402-jvmRun1 surefire-20250104125829492_1tmp surefire_0-20250104125829492_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Usuario\git\commons-dbutils\target\test-classes;C:\Users\Usuario\git\commons-dbutils\target\classes;C:\Users\Usuario\.m2\repository\org\junit\jupiter\junit-jupiter\5.11.2\junit-jupiter-5.11.2.jar;C:\Users\Usuario\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.2\junit-jupiter-api-5.11.2.jar;C:\Users\Usuario\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Usuario\.m2\repository\org\junit\platform\junit-platform-commons\1.11.2\junit-platform-commons-1.11.2.jar;C:\Users\Usuario\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Usuario\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.2\junit-jupiter-params-5.11.2.jar;C:\Users\Usuario\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.2\junit-jupiter-engine-5.11.2.jar;C:\Users\Usuario\.m2\repository\org\junit\platform\junit-platform-engine\1.11.2\junit-platform-engine-1.11.2.jar;C:\Users\Usuario\.m2\repository\org\mockito\mockito-junit-jupiter\5.15.2\mockito-junit-jupiter-5.15.2.jar;C:\Users\Usuario\.m2\repository\org\mockito\mockito-core\5.15.2\mockito-core-5.15.2.jar;C:\Users\Usuario\.m2\repository\net\bytebuddy\byte-buddy\1.15.11\byte-buddy-1.15.11.jar;C:\Users\Usuario\.m2\repository\net\bytebuddy\byte-buddy-agent\1.15.11\byte-buddy-agent-1.15.11.jar;C:\Users\Usuario\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\Usuario\.m2\repository\org\apache\commons\commons-lang3\3.17.0\commons-lang3-3.17.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\Usuario\AppData\Local\Temp\surefire1988665483691675966\surefirebooter-20250104124610263_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Usuario\AppData\Local\Temp\surefire10094653732078665591\surefirebooter-20250104125829492_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="19.0.2+7-44"/>
@@ -60,5 +60,5 @@
   </properties>
   <testcase name="testMatch" classname="org.apache.commons.dbutils.handlers.columns.IntegerColumnHandlerTest" time="0.0"/>
   <testcase name="testApplyType" classname="org.apache.commons.dbutils.handlers.columns.IntegerColumnHandlerTest" time="0.0"/>
-  <testcase name="testMatchNegative" classname="org.apache.commons.dbutils.handlers.columns.IntegerColumnHandlerTest" time="0.016"/>
+  <testcase name="testMatchNegative" classname="org.apache.commons.dbutils.handlers.columns.IntegerColumnHandlerTest" time="0.0"/>
 </testsuite>

@@ -144,7 +144,7 @@ public class DbUtilsTest {
     public void testCloseQuietlyConnectionThrowingException() throws Exception {
         final Connection mockConnection = mock(Connection.class);
         doThrow(SQLException.class).when(mockConnection).close();
-        DbUtils.closeQuietly(mockConnection);
+        assertDoesNotThrow(() -> DbUtils.closeQuietly(mockConnection));
     }
 
     @Test
@@ -161,17 +161,17 @@ public class DbUtilsTest {
 
     @Test
     public void testCloseQuietlyNullConnection() throws Exception {
-        DbUtils.closeQuietly((Connection) null);
+        assertDoesNotThrow(() -> DbUtils.closeQuietly((Connection) null));
     }
 
     @Test
     public void testCloseQuietlyNullResultSet() throws Exception {
-        DbUtils.closeQuietly((ResultSet) null);
+        assertDoesNotThrow(() -> DbUtils.closeQuietly((ResultSet) null));
     }
 
     @Test
     public void testCloseQuietlyNullStatement() throws Exception {
-        DbUtils.closeQuietly((Statement) null);
+        assertDoesNotThrow(() -> DbUtils.closeQuietly((Statement) null));
     }
 
     @Test
@@ -185,7 +185,7 @@ public class DbUtilsTest {
     public void testCloseQuietlyResultSetThrowingException() throws Exception {
         final ResultSet mockResultSet = mock(ResultSet.class);
         doThrow(SQLException.class).when(mockResultSet).close();
-        DbUtils.closeQuietly(mockResultSet);
+        assertDoesNotThrow(() -> DbUtils.closeQuietly(mockResultSet));
     }
 
     @Test
@@ -199,7 +199,7 @@ public class DbUtilsTest {
     public void testCloseQuietlyStatementThrowingException() throws Exception {
         final Statement mockStatement = mock(Statement.class);
         doThrow(SQLException.class).when(mockStatement).close();
-        DbUtils.closeQuietly(mockStatement);
+        assertDoesNotThrow(() -> DbUtils.closeQuietly(mockStatement));
     }
 
     @Test
@@ -244,7 +244,7 @@ public class DbUtilsTest {
     @Test
     public void testCommitAndCloseQuietlyWithNullDoesNotThrowAnSQLException() {
 
-        DbUtils.commitAndCloseQuietly(null);
+        assertDoesNotThrow(() -> DbUtils.commitAndCloseQuietly(null));
 
     }
 
@@ -285,7 +285,7 @@ public class DbUtilsTest {
 
     @Test
     public void testRollbackAndCloseNull() throws Exception {
-        DbUtils.rollbackAndClose(null);
+        assertDoesNotThrow(() -> DbUtils.rollbackAndClose(null));
     }
 
     @Test
@@ -298,7 +298,7 @@ public class DbUtilsTest {
 
     @Test
     public void testRollbackAndCloseQuietlyNull() throws Exception {
-        DbUtils.rollbackAndCloseQuietly(null);
+        assertDoesNotThrow(() -> DbUtils.rollbackAndCloseQuietly(null));
     }
 
     @Test
@@ -326,7 +326,7 @@ public class DbUtilsTest {
 
     @Test
     public void testRollbackNull() throws Exception {
-        DbUtils.rollback(null);
+        assertDoesNotThrow(() -> DbUtils.rollback(null));
     }
 
     @Test
@@ -338,7 +338,7 @@ public class DbUtilsTest {
 
     @Test
     public void testRollbackQuietlyNull() throws Exception {
-        DbUtils.rollbackQuietly(null);
+        assertDoesNotThrow(() -> DbUtils.rollbackQuietly(null));
     }
 
     @Test
