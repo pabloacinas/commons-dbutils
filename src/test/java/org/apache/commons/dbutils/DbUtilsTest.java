@@ -16,10 +16,9 @@
  */
 package org.apache.commons.dbutils;
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;  // Importa las aserciones de JUnit 5
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.reset;
