@@ -1,0 +1,9 @@
+Comparing source compatibility of commons-dbutils-1.9.0-SNAPSHOT.jar against commons-dbutils-1.8.1.jar
+***  MODIFIED CLASS: PUBLIC org.apache.commons.dbutils.BeanProcessor  (not serializable)
+	***! CLASS FILE FORMAT VERSION: 55.0 <- 52.0
+	+++  NEW METHOD: PROTECTED(+) FINAL(+) void finalize()
+***  MODIFIED CLASS: PUBLIC org.apache.commons.dbutils.StatementConfiguration  (not serializable)
+	***! CLASS FILE FORMAT VERSION: 55.0 <- 52.0
+	+++  NEW METHOD: PROTECTED(+) FINAL(+) void finalize()
+
+Semantic versioning suggestion: 0.0.1

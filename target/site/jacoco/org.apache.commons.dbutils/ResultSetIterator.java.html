@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="iso-8859-1"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ResultSetIterator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Apache Commons DbUtils</a> &gt; <a href="index.source.html" class="el_package">org.apache.commons.dbutils</a> &gt; <span class="el_source">ResultSetIterator.java</span></div><h1>ResultSetIterator.java</h1><pre class="source lang-java linenums">/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.dbutils;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Iterator;
+
+/**
+ * &lt;p&gt;
+ * Wraps a {@code ResultSet} in an {@code Iterator&amp;lt;Object[]&amp;gt;}.  This is useful
+ * when you want to present a non-database application layer with domain
+ * neutral data.
+ * &lt;/p&gt;
+ *
+ * &lt;p&gt;
+ * This implementation requires the {@code ResultSet.isLast()} method
+ * to be implemented.
+ * &lt;/p&gt;
+ */
+public class ResultSetIterator implements Iterator&lt;Object[]&gt; {
+
+    /**
+     * Generates an {@code Iterable}, suitable for use in for-each loops.
+     *
+     * @param resultSet Wrap this {@code ResultSet} in an {@code Iterator}.
+     * @return an {@code Iterable}, suitable for use in for-each loops.
+     */
+    public static Iterable&lt;Object[]&gt; iterable(final ResultSet resultSet) {
+<span class="nc" id="L44">        return () -&gt; new ResultSetIterator(resultSet);</span>
+    }
+
+    /**
+     * The wrapped {@code ResultSet}.
+     */
+    private final ResultSet resultSet;
+
+    /**
+     * The processor to use when converting a row into an Object[].
+     */
+    private final RowProcessor convert;
+
+    /**
+     * Constructor for ResultSetIterator.
+     * @param resultSet Wrap this {@code ResultSet} in an {@code Iterator}.
+     */
+    public ResultSetIterator(final ResultSet resultSet) {
+<span class="fc" id="L62">        this(resultSet, new BasicRowProcessor());</span>
+<span class="fc" id="L63">    }</span>
+
+    /**
+     * Constructor for ResultSetIterator.
+     * @param resultSet Wrap this {@code ResultSet} in an {@code Iterator}.
+     * @param convert The processor to use when converting a row into an
+     * {@code Object[]}.  Defaults to a
+     * {@code BasicRowProcessor}.
+     */
+<span class="fc" id="L72">    public ResultSetIterator(final ResultSet resultSet, final RowProcessor convert) {</span>
+<span class="fc" id="L73">        this.resultSet = resultSet;</span>
+<span class="fc" id="L74">        this.convert = convert;</span>
+<span class="fc" id="L75">    }</span>
+
+    /**
+     * Returns true if there are more rows in the ResultSet.
+     * @return boolean {@code true} if there are more rows
+     * @throws RuntimeException if an SQLException occurs.
+     */
+    @Override
+    public boolean hasNext() {
+        try {
+<span class="fc bfc" id="L85" title="All 2 branches covered.">            return !resultSet.isLast();</span>
+<span class="nc" id="L86">        } catch (final SQLException e) {</span>
+<span class="nc" id="L87">            rethrow(e);</span>
+<span class="nc" id="L88">            return false;</span>
+        }
+    }
+
+    /**
+     * Returns the next row as an {@code Object[]}.
+     * @return An {@code Object[]} with the same number of elements as
+     * columns in the {@code ResultSet}.
+     * @see java.util.Iterator#next()
+     * @throws RuntimeException if an SQLException occurs.
+     */
+    @Override
+    public Object[] next() {
+        try {
+<span class="fc bfc" id="L102" title="All 2 branches covered.">            return resultSet.next() ? this.convert.toArray(resultSet) : new Object[0];</span>
+<span class="nc" id="L103">        } catch (final SQLException e) {</span>
+<span class="nc" id="L104">            rethrow(e);</span>
+<span class="nc" id="L105">            return null;</span>
+        }
+    }
+
+    /**
+     * Deletes the current row from the {@code ResultSet}.
+     * @see java.util.Iterator#remove()
+     * @throws RuntimeException if an SQLException occurs.
+     */
+    @Override
+    public void remove() {
+        try {
+<span class="fc" id="L117">            this.resultSet.deleteRow();</span>
+<span class="nc" id="L118">        } catch (final SQLException e) {</span>
+<span class="nc" id="L119">            rethrow(e);</span>
+<span class="fc" id="L120">        }</span>
+<span class="fc" id="L121">    }</span>
+
+    /**
+     * Rethrow the SQLException as a RuntimeException.  This implementation
+     * creates a new RuntimeException with the SQLException's error message.
+     * @param e SQLException to rethrow
+     * @since 1.1
+     */
+    protected void rethrow(final SQLException e) {
+<span class="fc" id="L130">        throw new RuntimeException(e.getMessage());</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

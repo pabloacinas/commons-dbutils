@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="iso-8859-1"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProxyFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Apache Commons DbUtils</a> &gt; <a href="index.source.html" class="el_package">org.apache.commons.dbutils</a> &gt; <span class="el_source">ProxyFactory.java</span></div><h1>ProxyFactory.java</h1><pre class="source lang-java linenums">/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.dbutils;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Proxy;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.Driver;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.Statement;
+
+/**
+ * Creates proxy implementations of JDBC interfaces.  This avoids
+ * incompatibilities between the JDBC 2 and JDBC 3 interfaces.  This class is
+ * thread safe.
+ *
+ * @see java.lang.reflect.Proxy
+ * @see java.lang.reflect.InvocationHandler
+ */
+public class ProxyFactory {
+
+    /**
+     * The Singleton instance of this class.
+     */
+<span class="fc" id="L42">    private static final ProxyFactory INSTANCE = new ProxyFactory();</span>
+
+    /**
+     * Returns the Singleton instance of this class.
+     *
+     * @return singleton instance
+     */
+    public static ProxyFactory instance() {
+<span class="fc" id="L50">        return INSTANCE;</span>
+    }
+
+    /**
+     * Protected constructor for ProxyFactory subclasses to use.
+     */
+<span class="fc" id="L56">    protected ProxyFactory() {</span>
+<span class="fc" id="L57">    }</span>
+
+    /**
+     * Creates a new proxy {@code CallableStatement} object.
+     * @param handler The handler that intercepts/overrides method calls.
+     * @return proxied CallableStatement
+     */
+    public CallableStatement createCallableStatement(final InvocationHandler handler) {
+<span class="fc" id="L65">        return newProxyInstance(CallableStatement.class, handler);</span>
+    }
+
+    /**
+     * Creates a new proxy {@code Connection} object.
+     * @param handler The handler that intercepts/overrides method calls.
+     * @return proxied Connection
+     */
+    public Connection createConnection(final InvocationHandler handler) {
+<span class="fc" id="L74">        return newProxyInstance(Connection.class, handler);</span>
+    }
+
+    /**
+     * Creates a new proxy {@code Driver} object.
+     * @param handler The handler that intercepts/overrides method calls.
+     * @return proxied Driver
+     */
+    public Driver createDriver(final InvocationHandler handler) {
+<span class="fc" id="L83">        return newProxyInstance(Driver.class, handler);</span>
+    }
+
+    /**
+     * Creates a new proxy {@code PreparedStatement} object.
+     * @param handler The handler that intercepts/overrides method calls.
+     * @return proxied PreparedStatement
+     */
+    public PreparedStatement createPreparedStatement(final InvocationHandler handler) {
+<span class="fc" id="L92">        return newProxyInstance(PreparedStatement.class, handler);</span>
+    }
+
+    /**
+     * Creates a new proxy {@code ResultSet} object.
+     * @param handler The handler that intercepts/overrides method calls.
+     * @return proxied ResultSet
+     */
+    public ResultSet createResultSet(final InvocationHandler handler) {
+<span class="fc" id="L101">        return newProxyInstance(ResultSet.class, handler);</span>
+    }
+
+    /**
+     * Creates a new proxy {@code ResultSetMetaData} object.
+     * @param handler The handler that intercepts/overrides method calls.
+     * @return proxied ResultSetMetaData
+     */
+    public ResultSetMetaData createResultSetMetaData(final InvocationHandler handler) {
+<span class="fc" id="L110">        return newProxyInstance(ResultSetMetaData.class, handler);</span>
+    }
+
+    /**
+     * Creates a new proxy {@code Statement} object.
+     * @param handler The handler that intercepts/overrides method calls.
+     * @return proxied Statement
+     */
+    public Statement createStatement(final InvocationHandler handler) {
+<span class="fc" id="L119">        return newProxyInstance(Statement.class, handler);</span>
+    }
+
+    /**
+     * Convenience method to generate a single-interface proxy using the handler's classloader
+     *
+     * @param &lt;T&gt; The type of object to proxy
+     * @param type The type of object to proxy
+     * @param handler The handler that intercepts/overrides method calls.
+     * @return proxied object
+     */
+    public &lt;T&gt; T newProxyInstance(final Class&lt;T&gt; type, final InvocationHandler handler) {
+<span class="fc" id="L131">        return type.cast(Proxy.newProxyInstance(handler.getClass().getClassLoader(), new Class&lt;?&gt;[] {type}, handler));</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

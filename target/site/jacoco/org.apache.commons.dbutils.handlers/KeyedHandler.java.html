@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="iso-8859-1"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>KeyedHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Apache Commons DbUtils</a> &gt; <a href="index.source.html" class="el_package">org.apache.commons.dbutils.handlers</a> &gt; <span class="el_source">KeyedHandler.java</span></div><h1>KeyedHandler.java</h1><pre class="source lang-java linenums">/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.dbutils.handlers;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Map;
+
+import org.apache.commons.dbutils.RowProcessor;
+
+/**
+ * &lt;p&gt;
+ * {@code ResultSetHandler} implementation that returns a Map of Maps.
+ * {@code ResultSet} rows are converted into Maps which are then stored
+ * in a Map under the given key.
+ * &lt;/p&gt;
+ * &lt;p&gt;
+ * If you had a Person table with a primary key column called ID, you could
+ * retrieve rows from the table like this:
+ * &lt;pre&gt;
+ * ResultSetHandler h = new KeyedHandler(&quot;id&quot;);
+ * Map found = (Map) queryRunner.query(&quot;select id, name, age from person&quot;, h);
+ * Map jane = (Map) found.get(new Long(1)); // jane's id is 1
+ * String janesName = (String) jane.get(&quot;name&quot;);
+ * Integer janesAge = (Integer) jane.get(&quot;age&quot;);
+ * &lt;/pre&gt;
+ * Note that the &quot;id&quot; passed to KeyedHandler and &quot;name&quot; and &quot;age&quot; passed to the
+ * returned Map's get() method can be in any case.  The data types returned for
+ * name and age are dependent upon how your JDBC driver converts SQL column
+ * types from the Person table into Java types.
+ * &amp;lt;/p&amp;gt;
+ * &lt;p&gt;This class is thread safe.&lt;/p&gt;
+ *
+ * @param &lt;K&gt; The type of the key
+ * @see org.apache.commons.dbutils.ResultSetHandler
+ * @since 1.1
+ */
+public class KeyedHandler&lt;K&gt; extends AbstractKeyedHandler&lt;K, Map&lt;String, Object&gt;&gt; {
+
+    /**
+     * The RowProcessor implementation to use when converting rows
+     * into Objects.
+     */
+    protected final RowProcessor convert;
+
+    /**
+     * The column index to retrieve key values from.  Defaults to 1.
+     */
+    protected final int columnIndex;
+
+    /**
+     * The column name to retrieve key values from.  Either columnName or
+     * columnIndex will be used but never both.
+     */
+    protected final String columnName;
+
+    /**
+     * Creates a new instance of KeyedHandler.  The value of the first column
+     * of each row will be a key in the Map.
+     */
+    public KeyedHandler() {
+<span class="fc" id="L76">        this(ArrayHandler.ROW_PROCESSOR, 1, null);</span>
+<span class="fc" id="L77">    }</span>
+
+    /**
+     * Creates a new instance of KeyedHandler.
+     *
+     * @param columnIndex The values to use as keys in the Map are
+     * retrieved from the column at this index.
+     */
+    public KeyedHandler(final int columnIndex) {
+<span class="fc" id="L86">        this(ArrayHandler.ROW_PROCESSOR, columnIndex, null);</span>
+<span class="fc" id="L87">    }</span>
+
+    /**
+     * Creates a new instance of KeyedHandler.  The value of the first column
+     * of each row will be a key in the Map.
+     *
+     * @param convert The {@code RowProcessor} implementation
+     * to use when converting rows into Maps
+     */
+    public KeyedHandler(final RowProcessor convert) {
+<span class="fc" id="L97">        this(convert, 1, null);</span>
+<span class="fc" id="L98">    }</span>
+
+    /** Private Helper
+     * @param convert The {@code RowProcessor} implementation
+     * to use when converting rows into Maps
+     * @param columnIndex The values to use as keys in the Map are
+     * retrieved from the column at this index.
+     * @param columnName The values to use as keys in the Map are
+     * retrieved from the column with this name.
+     */
+    private KeyedHandler(final RowProcessor convert, final int columnIndex,
+<span class="fc" id="L109">            final String columnName) {</span>
+<span class="fc" id="L110">        this.convert = convert;</span>
+<span class="fc" id="L111">        this.columnIndex = columnIndex;</span>
+<span class="fc" id="L112">        this.columnName = columnName;</span>
+<span class="fc" id="L113">    }</span>
+
+    /**
+     * Creates a new instance of KeyedHandler.
+     *
+     * @param columnName The values to use as keys in the Map are
+     * retrieved from the column with this name.
+     */
+    public KeyedHandler(final String columnName) {
+<span class="fc" id="L122">        this(ArrayHandler.ROW_PROCESSOR, 1, columnName);</span>
+<span class="fc" id="L123">    }</span>
+    /**
+     * This factory method is called by {@code handle()} to retrieve the
+     * key value from the current {@code ResultSet} row.  This
+     * implementation returns {@code ResultSet.getObject()} for the
+     * configured key column name or index.
+     * @param rs ResultSet to create a key from
+     * @return Object from the configured key column name/index
+     * @throws SQLException if a database access error occurs
+     * @throws ClassCastException if the class datatype does not match the column type
+     */
+    // We assume that the user has picked the correct type to match the column
+    // so getObject will return the appropriate type and the cast will succeed.
+    @SuppressWarnings(&quot;unchecked&quot;)
+    @Override
+    protected K createKey(final ResultSet rs) throws SQLException {
+<span class="fc bfc" id="L139" title="All 2 branches covered.">        return columnName == null ?</span>
+<span class="fc" id="L140">               (K) rs.getObject(columnIndex) :</span>
+<span class="fc" id="L141">               (K) rs.getObject(columnName);</span>
+    }
+
+    /**
+     * This factory method is called by {@code handle()} to store the
+     * current {@code ResultSet} row in some object. This
+     * implementation returns a {@code Map} with case insensitive column
+     * names as keys.  Calls to {@code map.get(&quot;COL&quot;)} and
+     * {@code map.get(&quot;col&quot;)} return the same value.
+     * @param resultSet ResultSet to create a row from
+     * @return Object typed Map containing column names to values
+     * @throws SQLException if a database access error occurs
+     */
+    @Override
+    protected Map&lt;String, Object&gt; createRow(final ResultSet resultSet) throws SQLException {
+<span class="fc" id="L156">        return this.convert.toMap(resultSet);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

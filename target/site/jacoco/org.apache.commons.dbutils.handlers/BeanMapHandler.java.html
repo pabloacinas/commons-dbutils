@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="iso-8859-1"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BeanMapHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Apache Commons DbUtils</a> &gt; <a href="index.source.html" class="el_package">org.apache.commons.dbutils.handlers</a> &gt; <span class="el_source">BeanMapHandler.java</span></div><h1>BeanMapHandler.java</h1><pre class="source lang-java linenums">/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.dbutils.handlers;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.apache.commons.dbutils.RowProcessor;
+
+/**
+ * &lt;p&gt;
+ * {@code ResultSetHandler} implementation that returns a Map of Beans.
+ * {@code ResultSet} rows are converted into Beans which are then stored in
+ * a Map under the given key.
+ * &lt;/p&gt;
+ * &lt;p&gt;
+ * If you had a Person table with a primary key column called ID, you could
+ * retrieve rows from the table like this:
+ *
+ * &lt;pre&gt;
+ * ResultSetHandler&amp;lt;Map&amp;lt;Long, Person&amp;gt;&amp;gt; h = new BeanMapHandler&amp;lt;Long, Person&amp;gt;(Person.class, &amp;quot;id&amp;quot;);
+ * Map&amp;lt;Long, Person&amp;gt; found = queryRunner.query(&amp;quot;select id, name, age from person&amp;quot;, h);
+ * Person jane = found.get(1L); // jane's id is 1
+ * String janesName = jane.getName();
+ * Integer janesAge = jane.getAge();
+ * &lt;/pre&gt;
+ *
+ * Note that the &quot;id&quot; passed to BeanMapHandler can be in any case. The data type
+ * returned for id is dependent upon how your JDBC driver converts SQL column
+ * types from the Person table into Java types. The &quot;name&quot; and &quot;age&quot; columns are
+ * converted according to their property descriptors by DbUtils.
+ * &amp;lt;/p&amp;gt;
+ * &lt;p&gt;
+ * This class is thread safe.
+ * &amp;lt;/p&amp;gt;
+ *
+ * @param &lt;K&gt;
+ *            the type of keys maintained by the returned map
+ * @param &lt;V&gt;
+ *            the type of the bean
+ * @see org.apache.commons.dbutils.ResultSetHandler
+ * @since 1.5
+ */
+public class BeanMapHandler&lt;K, V&gt; extends AbstractKeyedHandler&lt;K, V&gt; {
+
+    /**
+     * The Class of beans produced by this handler.
+     */
+    private final Class&lt;V&gt; type;
+
+    /**
+     * The RowProcessor implementation to use when converting rows into Objects.
+     */
+    private final RowProcessor convert;
+
+    /**
+     * The column index to retrieve key values from. Defaults to 1.
+     */
+    private final int columnIndex;
+
+    /**
+     * The column name to retrieve key values from. Either columnName or
+     * columnIndex will be used but never both.
+     */
+    private final String columnName;
+
+    /**
+     * Creates a new instance of BeanMapHandler. The value of the first column
+     * of each row will be a key in the Map.
+     *
+     * @param type
+     *            The Class that objects returned from {@code createRow()}
+     *            are created from.
+     */
+    public BeanMapHandler(final Class&lt;V&gt; type) {
+<span class="fc" id="L90">        this(type, ArrayHandler.ROW_PROCESSOR, 1, null);</span>
+<span class="fc" id="L91">    }</span>
+
+    /**
+     * Creates a new instance of BeanMapHandler.
+     *
+     * @param type
+     *            The Class that objects returned from {@code createRow()}
+     *            are created from.
+     * @param columnIndex
+     *            The values to use as keys in the Map are retrieved from the
+     *            column at this index.
+     */
+    public BeanMapHandler(final Class&lt;V&gt; type, final int columnIndex) {
+<span class="fc" id="L104">        this(type, ArrayHandler.ROW_PROCESSOR, columnIndex, null);</span>
+<span class="fc" id="L105">    }</span>
+
+    /**
+     * Creates a new instance of BeanMapHandler. The value of the first column
+     * of each row will be a key in the Map.
+     *
+     * @param type
+     *            The Class that objects returned from {@code createRow()}
+     *            are created from.
+     * @param convert
+     *            The {@code RowProcessor} implementation to use when
+     *            converting rows into Beans
+     */
+    public BeanMapHandler(final Class&lt;V&gt; type, final RowProcessor convert) {
+<span class="fc" id="L119">        this(type, convert, 1, null);</span>
+<span class="fc" id="L120">    }</span>
+
+    /**
+     * Private Helper
+     *
+     * @param convert
+     *            The {@code RowProcessor} implementation to use when
+     *            converting rows into Beans
+     * @param columnIndex
+     *            The values to use as keys in the Map are retrieved from the
+     *            column at this index.
+     * @param columnName
+     *            The values to use as keys in the Map are retrieved from the
+     *            column with this name.
+     */
+    private BeanMapHandler(final Class&lt;V&gt; type, final RowProcessor convert,
+<span class="fc" id="L136">            final int columnIndex, final String columnName) {</span>
+<span class="fc" id="L137">        this.type = type;</span>
+<span class="fc" id="L138">        this.convert = convert;</span>
+<span class="fc" id="L139">        this.columnIndex = columnIndex;</span>
+<span class="fc" id="L140">        this.columnName = columnName;</span>
+<span class="fc" id="L141">    }</span>
+
+    /**
+     * Creates a new instance of BeanMapHandler.
+     *
+     * @param type
+     *            The Class that objects returned from {@code createRow()}
+     *            are created from.
+     * @param columnName
+     *            The values to use as keys in the Map are retrieved from the
+     *            column with this name.
+     */
+    public BeanMapHandler(final Class&lt;V&gt; type, final String columnName) {
+<span class="fc" id="L154">        this(type, ArrayHandler.ROW_PROCESSOR, 1, columnName);</span>
+<span class="fc" id="L155">    }</span>
+
+    /**
+     * This factory method is called by {@code handle()} to retrieve the
+     * key value from the current {@code ResultSet} row.
+     * @param resultSet ResultSet to create a key from
+     * @return K from the configured key column name/index
+     * @throws SQLException if a database access error occurs
+     * @throws ClassCastException if the class datatype does not match the column type
+     * @see org.apache.commons.dbutils.handlers.AbstractKeyedHandler#createKey(ResultSet)
+     */
+    // We assume that the user has picked the correct type to match the column
+    // so getObject will return the appropriate type and the cast will succeed.
+    @SuppressWarnings(&quot;unchecked&quot;)
+    @Override
+    protected K createKey(final ResultSet resultSet) throws SQLException {
+<span class="fc bfc" id="L171" title="All 2 branches covered.">        return columnName == null ?</span>
+<span class="fc" id="L172">               (K) resultSet.getObject(columnIndex) :</span>
+<span class="fc" id="L173">               (K) resultSet.getObject(columnName);</span>
+    }
+
+    @Override
+    protected V createRow(final ResultSet resultSet) throws SQLException {
+<span class="fc" id="L178">        return this.convert.toBean(resultSet, type);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

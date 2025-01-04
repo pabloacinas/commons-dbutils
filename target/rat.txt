@@ -1,0 +1,158 @@
+
+*****************************************************
+Summary
+-------
+Generated at: 2025-01-04T11:29:25+01:00
+
+Notes: 3
+Binaries: 1
+Archives: 0
+Standards: 128
+
+Apache Licensed: 128
+Generated Documents: 0
+
+JavaDocs are generated, thus a license header is optional.
+Generated files do not require license headers.
+
+0 Unknown Licenses
+
+*****************************************************
+  Files with Apache License headers will be marked AL
+  Binary files (which do not require any license headers) will be marked B
+  Compressed archives will be marked A
+  Notices, licenses etc. will be marked N
+  AL    .github/dependabot.yml
+  AL    .github/GH-ROBOTS.txt
+  AL    .github/pull_request_template.md
+  AL    .github/workflows/codeql-analysis.yml
+  AL    .github/workflows/dependency-review.yml
+  AL    .github/workflows/maven.yml
+  AL    .github/workflows/scorecards-analysis.yml
+  AL    CODE_OF_CONDUCT.md
+  AL    CONTRIBUTING.md
+  N     LICENSE.txt
+  N     NOTICE.txt
+  AL    pom.xml
+  AL    README.md
+  N     RELEASE-NOTES.txt
+  AL    SECURITY.md
+  AL    src/changes/changes.xml
+  AL    src/changes/release-notes.vm
+  AL    src/conf/checkstyle/checkstyle-header.txt
+  AL    src/conf/checkstyle/checkstyle-suppressions.xml
+  AL    src/conf/checkstyle/checkstyle.xml
+  AL    src/main/assembly/bin.xml
+  AL    src/main/assembly/src.xml
+  AL    src/main/java/org/apache/commons/dbutils/AbstractQueryRunner.java
+  AL    src/main/java/org/apache/commons/dbutils/AsyncQueryRunner.java
+  AL    src/main/java/org/apache/commons/dbutils/BaseResultSetHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/BasicRowProcessor.java
+  AL    src/main/java/org/apache/commons/dbutils/BeanProcessor.java
+  AL    src/main/java/org/apache/commons/dbutils/Column.java
+  AL    src/main/java/org/apache/commons/dbutils/ColumnHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/DbUtils.java
+  AL    src/main/java/org/apache/commons/dbutils/GenerousBeanProcessor.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/AbstractKeyedHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/AbstractListHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/ArrayHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/ArrayListHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/BeanHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/BeanListHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/BeanMapHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/ColumnListHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/columns/BooleanColumnHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/columns/ByteColumnHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/columns/DoubleColumnHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/columns/FloatColumnHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/columns/IntegerColumnHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/columns/LongColumnHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/columns/package-info.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/columns/ShortColumnHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/columns/SQLXMLColumnHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/columns/StringColumnHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/columns/TimestampColumnHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/KeyedHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/MapHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/MapListHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/package-info.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/properties/DatePropertyHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/properties/package-info.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/handlers/ScalarHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/OutParameter.java
+  AL    src/main/java/org/apache/commons/dbutils/package-info.java
+  AL    src/main/java/org/apache/commons/dbutils/PropertyHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/ProxyFactory.java
+  AL    src/main/java/org/apache/commons/dbutils/QueryLoader.java
+  AL    src/main/java/org/apache/commons/dbutils/QueryRunner.java
+  AL    src/main/java/org/apache/commons/dbutils/ResultSetHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/ResultSetIterator.java
+  AL    src/main/java/org/apache/commons/dbutils/RowProcessor.java
+  AL    src/main/java/org/apache/commons/dbutils/StatementConfiguration.java
+  AL    src/main/java/org/apache/commons/dbutils/wrappers/package-info.java
+  AL    src/main/java/org/apache/commons/dbutils/wrappers/SqlNullCheckedResultSet.java
+  AL    src/main/java/org/apache/commons/dbutils/wrappers/StringTrimmedResultSet.java
+  AL    src/main/resources/META-INF/services/org.apache.commons.dbutils.ColumnHandler
+  AL    src/main/resources/META-INF/services/org.apache.commons.dbutils.PropertyHandler
+  B     src/site/resources/images/logo.png
+  AL    src/site/resources/spotbugs/sb-excludes.xml
+  AL    src/site/site.xml
+  AL    src/site/xdoc/building.xml
+  AL    src/site/xdoc/download_dbutils.xml
+  AL    src/site/xdoc/examples.xml
+  AL    src/site/xdoc/index.xml
+  AL    src/site/xdoc/issue-tracking.xml
+  AL    src/site/xdoc/mail-lists.xml
+  AL    src/site/xdoc/proposal.xml
+  AL    src/test/java/org/apache/commons/dbutils/AsyncQueryRunnerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/BaseResultSetHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/BaseTestCase.java
+  AL    src/test/java/org/apache/commons/dbutils/BasicRowProcessorTest.java
+  AL    src/test/java/org/apache/commons/dbutils/BeanProcessorTest.java
+  AL    src/test/java/org/apache/commons/dbutils/DbUtilsTest.java
+  AL    src/test/java/org/apache/commons/dbutils/GenerousBeanProcessorTest.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/ArrayHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/ArrayListHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/BeanHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/BeanListHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/BeanMapHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/ColumnListHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/columns/AbstractTestColumnHandler.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/columns/BooleanColumnHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/columns/ByteColumnHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/columns/DoubleColumnHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/columns/FloatColumnHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/columns/IntegerColumnHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/columns/LongColumnHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/columns/ShortColumnHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/columns/SQLXMLColumnHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/columns/StringColumnHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/columns/TestColumnHandler.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/columns/TimestampColumnHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/KeyedHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/MapHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/MapListHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/properties/DatePropertyHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/properties/PropertyHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/properties/TestEnum.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/properties/TestPropertyHandler.java
+  AL    src/test/java/org/apache/commons/dbutils/handlers/ScalarHandlerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/MockResultSet.java
+  AL    src/test/java/org/apache/commons/dbutils/MockResultSetMetaData.java
+  AL    src/test/java/org/apache/commons/dbutils/OutParameterTest.java
+  AL    src/test/java/org/apache/commons/dbutils/ProxyFactoryTest.java
+  AL    src/test/java/org/apache/commons/dbutils/QueryLoaderTest.java
+  AL    src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java
+  AL    src/test/java/org/apache/commons/dbutils/ResultSetIteratorTest.java
+  AL    src/test/java/org/apache/commons/dbutils/ServiceLoaderTest.java
+  AL    src/test/java/org/apache/commons/dbutils/StatementConfigurationTest.java
+  AL    src/test/java/org/apache/commons/dbutils/TestBean.java
+  AL    src/test/java/org/apache/commons/dbutils/wrappers/SqlNullCheckedResultSetTest.java
+  AL    src/test/java/org/apache/commons/dbutils/wrappers/StringTrimmedResultSetTest.java
+  AL    src/test/resources/META-INF/services/org.apache.commons.dbutils.ColumnHandler
+  AL    src/test/resources/META-INF/services/org.apache.commons.dbutils.PropertyHandler
+  AL    src/test/resources/org/apache/commons/dbutils/TestQueries.properties
+ 
+*****************************************************

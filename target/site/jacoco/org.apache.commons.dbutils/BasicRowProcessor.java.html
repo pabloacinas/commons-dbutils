@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="iso-8859-1"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BasicRowProcessor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Apache Commons DbUtils</a> &gt; <a href="index.source.html" class="el_package">org.apache.commons.dbutils</a> &gt; <span class="el_source">BasicRowProcessor.java</span></div><h1>BasicRowProcessor.java</h1><pre class="source lang-java linenums">/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.dbutils;
+
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
+/**
+ * Basic implementation of the {@code RowProcessor} interface.
+ *
+ * &lt;p&gt;
+ * This class is thread-safe.
+ * &lt;/p&gt;
+ *
+ * @see RowProcessor
+ */
+public class BasicRowProcessor implements RowProcessor {
+
+    /**
+     * A Map that converts all keys to lowercase Strings for case insensitive
+     * lookups.  This is needed for the toMap() implementation because
+     * databases don't consistently handle the casing of column names.
+     *
+     * &lt;p&gt;The keys are stored as they are given [BUG #DBUTILS-34], so we maintain
+     * an internal mapping from lowercase keys to the real keys in order to
+     * achieve the case insensitive lookup.
+     *
+     * &lt;p&gt;Note: This implementation does not allow {@code null}
+     * for key, whereas {@link LinkedHashMap} does, because of the code:
+     * &lt;pre&gt;
+     * key.toString().toLowerCase()
+     * &lt;/pre&gt;
+     */
+    private static final class CaseInsensitiveHashMap extends LinkedHashMap&lt;String, Object&gt; {
+
+        /**
+         * Required for serialization support.
+         *
+         * @see java.io.Serializable
+         */
+        private static final long serialVersionUID = -2848100435296897392L;
+
+        /**
+         * The internal mapping from lowercase keys to the real keys.
+         *
+         * &lt;p&gt;
+         * Any query operation using the key
+         * ({@link #get(Object)}, {@link #containsKey(Object)})
+         * is done in three steps:
+         * &lt;ul&gt;
+         * &lt;li&gt;convert the parameter key to lower case&lt;/li&gt;
+         * &lt;li&gt;get the actual key that corresponds to the lower case key&lt;/li&gt;
+         * &lt;li&gt;query the map with the actual key&lt;/li&gt;
+         * &lt;/ul&gt;
+         * &lt;/p&gt;
+         */
+<span class="fc" id="L77">        private final Map&lt;String, String&gt; lowerCaseMap = new HashMap&lt;&gt;();</span>
+
+        private CaseInsensitiveHashMap(final int initialCapacity) {
+<span class="fc" id="L80">            super(initialCapacity);</span>
+<span class="fc" id="L81">        }</span>
+
+        /** {@inheritDoc} */
+        @Override
+        public boolean containsKey(final Object key) {
+<span class="fc" id="L86">            final Object realKey = lowerCaseMap.get(key.toString().toLowerCase(Locale.ROOT));</span>
+<span class="fc" id="L87">            return super.containsKey(realKey);</span>
+            // Possible optimization here:
+            // Since the lowerCaseMap contains a mapping for all the keys,
+            // we could just do this:
+            // return lowerCaseMap.containsKey(key.toString().toLowerCase());
+        }
+
+        /** {@inheritDoc} */
+        @Override
+        public Object get(final Object key) {
+<span class="fc" id="L97">            final Object realKey = lowerCaseMap.get(key.toString().toLowerCase(Locale.ROOT));</span>
+<span class="fc" id="L98">            return super.get(realKey);</span>
+        }
+
+        /** {@inheritDoc} */
+        @Override
+        public Object put(final String key, final Object value) {
+            /*
+             * In order to keep the map and lowerCaseMap synchronized,
+             * we have to remove the old mapping before putting the
+             * new one. Indeed, oldKey and key are not necessarily equals.
+             * (That's why we call super.remove(oldKey) and not just
+             * super.put(key, value))
+             */
+<span class="fc" id="L111">            final Object oldKey = lowerCaseMap.put(key.toLowerCase(Locale.ROOT), key);</span>
+<span class="fc" id="L112">            final Object oldValue = super.remove(oldKey);</span>
+<span class="fc" id="L113">            super.put(key, value);</span>
+<span class="fc" id="L114">            return oldValue;</span>
+        }
+
+        /** {@inheritDoc} */
+        @Override
+        public void putAll(final Map&lt;? extends String, ?&gt; m) {
+<span class="fc" id="L120">            m.forEach(this::put);</span>
+<span class="fc" id="L121">        }</span>
+
+        /** {@inheritDoc} */
+        @Override
+        public Object remove(final Object key) {
+<span class="fc" id="L126">            final Object realKey = lowerCaseMap.remove(key.toString().toLowerCase(Locale.ROOT));</span>
+<span class="fc" id="L127">            return super.remove(realKey);</span>
+        }
+    }
+
+    /**
+     * The default BeanProcessor instance to use if not supplied in the
+     * constructor.
+     */
+<span class="fc" id="L135">    private static final BeanProcessor DEFAULT_CONVERTER = new BeanProcessor();</span>
+
+    /**
+     * The Singleton instance of this class.
+     */
+<span class="fc" id="L140">    private static final BasicRowProcessor INSTANCE = new BasicRowProcessor();</span>
+
+    protected static Map&lt;String, Object&gt; createCaseInsensitiveHashMap(final int cols) {
+<span class="fc" id="L143">        return new CaseInsensitiveHashMap(cols);</span>
+    }
+
+    /**
+     * Returns the Singleton instance of this class.
+     *
+     * @return The single instance of this class.
+     * @deprecated Create instances with the constructors instead.  This will
+     * be removed in 2.0.
+     */
+    @Deprecated
+    public static BasicRowProcessor instance() {
+<span class="nc" id="L155">        return INSTANCE;</span>
+    }
+
+    /**
+     * Use this to process beans.
+     */
+    private final BeanProcessor convert;
+
+    /**
+     * BasicRowProcessor constructor.  Bean processing defaults to a
+     * BeanProcessor instance.
+     */
+    public BasicRowProcessor() {
+<span class="fc" id="L168">        this(DEFAULT_CONVERTER);</span>
+<span class="fc" id="L169">    }</span>
+
+    /**
+     * BasicRowProcessor constructor.
+     * @param convert The BeanProcessor to use when converting columns to
+     * bean properties.
+     * @since 1.1
+     */
+<span class="fc" id="L177">    public BasicRowProcessor(final BeanProcessor convert) {</span>
+<span class="fc" id="L178">        this.convert = convert;</span>
+<span class="fc" id="L179">    }</span>
+
+    /**
+     * Convert a {@code ResultSet} row into an {@code Object[]}.
+     * This implementation copies column values into the array in the same
+     * order they're returned from the {@code ResultSet}.  Array elements
+     * will be set to {@code null} if the column was SQL NULL.
+     *
+     * @see org.apache.commons.dbutils.RowProcessor#toArray(java.sql.ResultSet)
+     * @param resultSet ResultSet that supplies the array data
+     * @throws SQLException if a database access error occurs
+     * @return the newly created array
+     */
+    @Override
+    public Object[] toArray(final ResultSet resultSet) throws SQLException {
+<span class="fc" id="L194">        final ResultSetMetaData meta = resultSet.getMetaData();</span>
+<span class="fc" id="L195">        final int cols = meta.getColumnCount();</span>
+<span class="fc" id="L196">        final Object[] result = new Object[cols];</span>
+
+<span class="fc bfc" id="L198" title="All 2 branches covered.">        for (int i = 0; i &lt; cols; i++) {</span>
+<span class="fc" id="L199">            result[i] = resultSet.getObject(i + 1);</span>
+        }
+
+<span class="fc" id="L202">        return result;</span>
+    }
+
+    /**
+     * Convert a {@code ResultSet} row into a JavaBean.  This
+     * implementation delegates to a BeanProcessor instance.
+     * @see org.apache.commons.dbutils.RowProcessor#toBean(java.sql.ResultSet, Class)
+     * @see org.apache.commons.dbutils.BeanProcessor#toBean(java.sql.ResultSet, Class)
+     * @param &lt;T&gt; The type of bean to create
+     * @param resultSet ResultSet that supplies the bean data
+     * @param type Class from which to create the bean instance
+     * @throws SQLException if a database access error occurs
+     * @return the newly created bean
+     */
+    @Override
+    public &lt;T&gt; T toBean(final ResultSet resultSet, final Class&lt;? extends T&gt; type) throws SQLException {
+<span class="fc" id="L218">        return this.convert.toBean(resultSet, type);</span>
+    }
+
+    /**
+     * Convert a {@code ResultSet} into a {@code List} of JavaBeans.
+     * This implementation delegates to a BeanProcessor instance.
+     * @see org.apache.commons.dbutils.RowProcessor#toBeanList(java.sql.ResultSet, Class)
+     * @see org.apache.commons.dbutils.BeanProcessor#toBeanList(java.sql.ResultSet, Class)
+     * @param &lt;T&gt; The type of bean to create
+     * @param resultSet ResultSet that supplies the bean data
+     * @param type Class from which to create the bean instance
+     * @throws SQLException if a database access error occurs
+     * @return A {@code List} of beans with the given type in the order
+     * they were returned by the {@code ResultSet}.
+     */
+    @Override
+    public &lt;T&gt; List&lt;T&gt; toBeanList(final ResultSet resultSet, final Class&lt;? extends T&gt; type) throws SQLException {
+<span class="fc" id="L235">        return this.convert.toBeanList(resultSet, type);</span>
+    }
+
+    /**
+     * Convert a {@code ResultSet} row into a {@code Map}.
+     *
+     * &lt;p&gt;
+     * This implementation returns a {@code Map} with case insensitive column names as keys. Calls to
+     * {@code map.get(&quot;COL&quot;)} and {@code map.get(&quot;col&quot;)} return the same value. Furthermore this implementation
+     * will return an ordered map, that preserves the ordering of the columns in the ResultSet, so that iterating over
+     * the entry set of the returned map will return the first column of the ResultSet, then the second and so forth.
+     * &lt;/p&gt;
+     *
+     * @param resultSet ResultSet that supplies the map data
+     * @return the newly created Map
+     * @throws SQLException if a database access error occurs
+     * @see org.apache.commons.dbutils.RowProcessor#toMap(java.sql.ResultSet)
+     */
+    @Override
+    public Map&lt;String, Object&gt; toMap(final ResultSet resultSet) throws SQLException {
+<span class="fc" id="L255">        final ResultSetMetaData rsmd = resultSet.getMetaData();</span>
+<span class="fc" id="L256">        final int cols = rsmd.getColumnCount();</span>
+<span class="fc" id="L257">        final Map&lt;String, Object&gt; result = createCaseInsensitiveHashMap(cols);</span>
+
+<span class="fc bfc" id="L259" title="All 2 branches covered.">        for (int i = 1; i &lt;= cols; i++) {</span>
+<span class="fc" id="L260">            String propKey = rsmd.getColumnLabel(i);</span>
+<span class="pc bpc" id="L261" title="3 of 4 branches missed.">            if (null == propKey || 0 == propKey.length()) {</span>
+<span class="fc" id="L262">              propKey = rsmd.getColumnName(i);</span>
+            }
+<span class="pc bpc" id="L264" title="1 of 4 branches missed.">            if (null == propKey || 0 == propKey.length()) {</span>
+              // The column index can't be null
+<span class="fc" id="L266">              propKey = Integer.toString(i);</span>
+            }
+<span class="fc" id="L268">            result.put(propKey, resultSet.getObject(i));</span>
+        }
+
+<span class="fc" id="L271">        return result;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

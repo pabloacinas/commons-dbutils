@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="iso-8859-1"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MapListHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Apache Commons DbUtils</a> &gt; <a href="index.source.html" class="el_package">org.apache.commons.dbutils.handlers</a> &gt; <span class="el_source">MapListHandler.java</span></div><h1>MapListHandler.java</h1><pre class="source lang-java linenums">/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.dbutils.handlers;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Map;
+
+import org.apache.commons.dbutils.RowProcessor;
+
+/**
+ * {@code ResultSetHandler} implementation that converts a
+ * {@code ResultSet} into a {@code List} of {@code Map}s.
+ * This class is thread safe.
+ *
+ * @see org.apache.commons.dbutils.ResultSetHandler
+ */
+public class MapListHandler extends AbstractListHandler&lt;Map&lt;String, Object&gt;&gt; {
+
+    /**
+     * The RowProcessor implementation to use when converting rows
+     * into Maps.
+     */
+    private final RowProcessor convert;
+
+    /**
+     * Creates a new instance of MapListHandler using a
+     * {@code BasicRowProcessor} for conversion.
+     */
+    public MapListHandler() {
+<span class="fc" id="L45">        this(ArrayHandler.ROW_PROCESSOR);</span>
+<span class="fc" id="L46">    }</span>
+
+    /**
+     * Creates a new instance of MapListHandler.
+     *
+     * @param convert The {@code RowProcessor} implementation
+     * to use when converting rows into Maps.
+     */
+<span class="fc" id="L54">    public MapListHandler(final RowProcessor convert) {</span>
+<span class="fc" id="L55">        this.convert = convert;</span>
+<span class="fc" id="L56">    }</span>
+
+    /**
+     * Converts the {@code ResultSet} row into a {@code Map} object.
+     * @param resultSet {@code ResultSet} to process.
+     * @return A {@code Map}, never null.
+     * @throws SQLException if a database access error occurs
+     * @see org.apache.commons.dbutils.handlers.AbstractListHandler#handle(ResultSet)
+     */
+    @Override
+    protected Map&lt;String, Object&gt; handleRow(final ResultSet resultSet) throws SQLException {
+<span class="fc" id="L67">        return this.convert.toMap(resultSet);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

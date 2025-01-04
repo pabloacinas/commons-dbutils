@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="iso-8859-1"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ArrayHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Apache Commons DbUtils</a> &gt; <a href="index.source.html" class="el_package">org.apache.commons.dbutils.handlers</a> &gt; <span class="el_source">ArrayHandler.java</span></div><h1>ArrayHandler.java</h1><pre class="source lang-java linenums">/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.dbutils.handlers;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.apache.commons.dbutils.BasicRowProcessor;
+import org.apache.commons.dbutils.ResultSetHandler;
+import org.apache.commons.dbutils.RowProcessor;
+
+/**
+ * {@code ResultSetHandler} implementation that converts a
+ * {@code ResultSet} into an {@code Object[]}. This class is
+ * thread safe.
+ *
+ * @see org.apache.commons.dbutils.ResultSetHandler
+ */
+public class ArrayHandler implements ResultSetHandler&lt;Object[]&gt; {
+
+    /**
+     * Singleton processor instance that handlers share to save memory.  Notice
+     * the default scoping to allow only classes in this package to use this
+     * instance.
+     */
+<span class="fc" id="L40">    static final RowProcessor ROW_PROCESSOR = new BasicRowProcessor();</span>
+
+    /**
+     * An empty array to return when no more rows are available in the ResultSet.
+     */
+<span class="fc" id="L45">    private static final Object[] EMPTY_ARRAY = {};</span>
+
+    /**
+     * The RowProcessor implementation to use when converting rows
+     * into arrays.
+     */
+    private final RowProcessor convert;
+
+    /**
+     * Creates a new instance of ArrayHandler using a
+     * {@code BasicRowProcessor} for conversion.
+     */
+    public ArrayHandler() {
+<span class="fc" id="L58">        this(ROW_PROCESSOR);</span>
+<span class="fc" id="L59">    }</span>
+
+    /**
+     * Creates a new instance of ArrayHandler.
+     *
+     * @param convert The {@code RowProcessor} implementation
+     * to use when converting rows into arrays.
+     */
+<span class="fc" id="L67">    public ArrayHandler(final RowProcessor convert) {</span>
+<span class="fc" id="L68">        this.convert = convert;</span>
+<span class="fc" id="L69">    }</span>
+
+    /**
+     * Places the column values from the first row in an {@code Object[]}.
+     * @param resultSet {@code ResultSet} to process.
+     * @return An Object[]. If there are no rows in the {@code ResultSet}
+     * an empty array will be returned.
+     *
+     * @throws SQLException if a database access error occurs
+     * @see org.apache.commons.dbutils.ResultSetHandler#handle(java.sql.ResultSet)
+     */
+    @Override
+    public Object[] handle(final ResultSet resultSet) throws SQLException {
+<span class="fc bfc" id="L82" title="All 2 branches covered.">        return resultSet.next() ? this.convert.toArray(resultSet) : EMPTY_ARRAY;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
