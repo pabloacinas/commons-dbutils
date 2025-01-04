@@ -83,7 +83,7 @@ public class DbUtilsTest {
     }
 
     @Test
-	public void testCloseNullConnection() throws Exception {
+    public void testCloseNullConnection() throws Exception {
     assertDoesNotThrow(() -> DbUtils.close((Connection) null));
     }
 
