@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Build-Jdk-Spec: 19
+Build-Jdk-Spec: 17
 Bundle-Description: The Apache Commons DbUtils package is a set of Java 
  utility classes for easing JDBC development.
 Bundle-DocURL: https://commons.apache.org/proper/commons-dbutils/
