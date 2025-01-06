@@ -15,6 +15,8 @@ org\apache\commons\dbutils\AsyncQueryRunner.class
 org\apache\commons\dbutils\PropertyHandler.class
 org\apache\commons\dbutils\handlers\ScalarHandler.class
 org\apache\commons\dbutils\handlers\properties\StringEnumPropertyHandler.class
+org\apache\commons\dbutils\jmh_generated\MyBenchmark_jmhType_B3.class
+org\apache\commons\dbutils\MyBenchmark.class
 org\apache\commons\dbutils\handlers\columns\package-info.class
 org\apache\commons\dbutils\handlers\columns\ShortColumnHandler.class
 org\apache\commons\dbutils\handlers\package-info.class
@@ -34,10 +36,13 @@ org\apache\commons\dbutils\wrappers\StringTrimmedResultSet.class
 org\apache\commons\dbutils\wrappers\SqlNullCheckedResultSet.class
 org\apache\commons\dbutils\handlers\columns\SQLXMLColumnHandler.class
 org\apache\commons\dbutils\AsyncQueryRunner$BatchCallableStatement.class
+org\apache\commons\dbutils\jmh_generated\MyBenchmark_jmhType_B1.class
 org\apache\commons\dbutils\StatementConfiguration$Builder.class
+META-INF\CompilerHints
 org\apache\commons\dbutils\AsyncQueryRunner$QueryCallableStatement.class
 org\apache\commons\dbutils\BasicRowProcessor$CaseInsensitiveHashMap.class
 org\apache\commons\dbutils\handlers\properties\package-info.class
+org\apache\commons\dbutils\jmh_generated\MyBenchmark_measureThroughput_jmhTest.class
 org\apache\commons\dbutils\BasicRowProcessor.class
 org\apache\commons\dbutils\Column.class
 org\apache\commons\dbutils\ProxyFactory.class
@@ -47,9 +52,12 @@ org\apache\commons\dbutils\handlers\columns\DoubleColumnHandler.class
 org\apache\commons\dbutils\QueryRunner.class
 org\apache\commons\dbutils\ResultSetHandler.class
 org\apache\commons\dbutils\handlers\columns\IntegerColumnHandler.class
+META-INF\BenchmarkList
 org\apache\commons\dbutils\BaseResultSetHandler.class
 org\apache\commons\dbutils\ColumnHandler.class
 org\apache\commons\dbutils\handlers\AbstractKeyedHandler.class
 org\apache\commons\dbutils\handlers\AbstractListHandler.class
 org\apache\commons\dbutils\RowProcessor.class
 org\apache\commons\dbutils\OutParameter.class
+org\apache\commons\dbutils\jmh_generated\MyBenchmark_jmhType.class
+org\apache\commons\dbutils\jmh_generated\MyBenchmark_jmhType_B2.class

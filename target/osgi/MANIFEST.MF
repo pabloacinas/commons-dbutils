@@ -14,11 +14,14 @@ Export-Package: org.apache.commons.dbutils;version="1.9.0.SNAPSHOT",org.
  apache.commons.dbutils.handlers;version="1.9.0.SNAPSHOT",org.apache.com
  mons.dbutils.handlers.columns;version="1.9.0.SNAPSHOT",org.apache.commo
  ns.dbutils.handlers.properties;version="1.9.0.SNAPSHOT",org.apache.comm
- ons.dbutils.wrappers;version="1.9.0.SNAPSHOT"
+ ons.dbutils.jmh_generated;version="1.9.0.SNAPSHOT",org.apache.commons.d
+ butils.wrappers;version="1.9.0.SNAPSHOT"
 Import-Package: java.beans,java.io,java.lang,java.lang.annotation,java.l
  ang.invoke,java.lang.reflect,java.math,java.net,java.sql,java.time,java
- .util,java.util.concurrent,java.util.function,java.util.logging,java.ut
- il.regex,javax.sql
+ .util,java.util.concurrent,java.util.concurrent.atomic,java.util.functi
+ on,java.util.logging,java.util.regex,javax.sql,org.openjdk.jmh.annotati
+ ons,org.openjdk.jmh.infra,org.openjdk.jmh.results,org.openjdk.jmh.runne
+ r,org.openjdk.jmh.runner.options,org.openjdk.jmh.util
 Include-Resource: META-INF/services/org.apache.commons.dbutils.ColumnHan
  dler=src/main/resources/META-INF/services/org.apache.commons.dbutils.Co
  lumnHandler,META-INF/services/org.apache.commons.dbutils.PropertyHandle

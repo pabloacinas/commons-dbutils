@@ -4,7 +4,6 @@ org\apache\commons\dbutils\QueryRunnerTest.class
 org\apache\commons\dbutils\TestBean.class
 org\apache\commons\dbutils\MockResultSet.class
 org\apache\commons\dbutils\BaseResultSetHandlerTest$ToMapCollectionHandler.class
-org\apache\commons\dbutils\jmh_generated\MyBenchmark_measureAverageTime_jmhTest.class
 org\apache\commons\dbutils\GenerousBeanProcessorTest.class
 org\apache\commons\dbutils\handlers\BeanMapHandlerTest.class
 org\apache\commons\dbutils\StatementConfigurationTest.class
@@ -19,9 +18,7 @@ org\apache\commons\dbutils\OutParameterTest.class
 org\apache\commons\dbutils\QueryRunnerTest$1.class
 org\apache\commons\dbutils\BeanProcessorTest$TestNoGetter.class
 org\apache\commons\dbutils\handlers\columns\IntegerColumnHandlerTest.class
-org\apache\commons\dbutils\jmh_generated\MyBenchmark_jmhType_B3.class
 org\apache\commons\dbutils\MockResultSetMetaData.class
-org\apache\commons\dbutils\MyBenchmark.class
 org\apache\commons\dbutils\BeanProcessorTest$MapColumnToAnnotationFieldBean.class
 org\apache\commons\dbutils\handlers\ColumnListHandlerTest.class
 org\apache\commons\dbutils\handlers\ArrayHandlerTest.class
@@ -29,7 +26,6 @@ org\apache\commons\dbutils\handlers\properties\DatePropertyHandlerTest.class
 org\apache\commons\dbutils\handlers\columns\FloatColumnHandlerTest.class
 org\apache\commons\dbutils\wrappers\SqlNullUncheckedMockResultSet.class
 org\apache\commons\dbutils\AsyncQueryRunnerTest.class
-org\apache\commons\dbutils\jmh_generated\MyBenchmark_measureSampleTime_jmhTest.class
 org\apache\commons\dbutils\ProxyFactoryTest.class
 org\apache\commons\dbutils\QueryLoaderTest.class
 org\apache\commons\dbutils\BasicRowProcessorTest.class
@@ -48,14 +44,11 @@ org\apache\commons\dbutils\handlers\columns\LongColumnHandlerTest.class
 org\apache\commons\dbutils\handlers\properties\StringEnumPropertyHandlerTest.class
 org\apache\commons\dbutils\QueryRunnerTest$MyBean.class
 org\apache\commons\dbutils\handlers\MapHandlerTest.class
-org\apache\commons\dbutils\jmh_generated\MyBenchmark_jmhType_B1.class
-META-INF\CompilerHints
 org\apache\commons\dbutils\BeanProcessorTest.class
 org\apache\commons\dbutils\handlers\columns\ByteColumnHandlerTest.class
 org\apache\commons\dbutils\handlers\BeanHandlerTest$SubTestBean.class
 org\apache\commons\dbutils\TestBean$Ordinal.class
 org\apache\commons\dbutils\BeanProcessorTest$MapColumnToPropertiesBean.class
-org\apache\commons\dbutils\jmh_generated\MyBenchmark_measureThroughput_jmhTest.class
 org\apache\commons\dbutils\DbUtilsTest.class
 org\apache\commons\dbutils\wrappers\SqlNullCheckedResultSetMockBlob.class
 org\apache\commons\dbutils\handlers\BeanListHandlerTest.class
@@ -65,12 +58,8 @@ org\apache\commons\dbutils\handlers\BeanListHandlerTest$SubTestBean.class
 org\apache\commons\dbutils\handlers\properties\TestPropertyHandler.class
 org\apache\commons\dbutils\BeanProcessorTest$TestWrongSetter.class
 org\apache\commons\dbutils\ResultSetIteratorTest.class
-META-INF\BenchmarkList
 org\apache\commons\dbutils\BaseResultSetHandlerTest.class
 org\apache\commons\dbutils\handlers\columns\TestColumnHandler.class
 org\apache\commons\dbutils\DbUtilsTest$DriverProxyTest.class
 org\apache\commons\dbutils\handlers\BeanHandlerTest.class
 org\apache\commons\dbutils\handlers\columns\AbstractTestColumnHandler.class
-org\apache\commons\dbutils\jmh_generated\MyBenchmark_jmhType.class
-org\apache\commons\dbutils\jmh_generated\MyBenchmark_measureSingleShotTime_jmhTest.class
-org\apache\commons\dbutils\jmh_generated\MyBenchmark_jmhType_B2.class

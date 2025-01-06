@@ -2,7 +2,7 @@
 *****************************************************
 Summary
 -------
-Generated at: 2025-01-06T03:29:19+01:00
+Generated at: 2025-01-06T16:57:25+01:00
 
 Notes: 3
 Binaries: 2
@@ -81,6 +81,7 @@ Generated files do not require license headers.
   AL    src/main/java/org/apache/commons/dbutils/handlers/properties/package-info.java
   AL    src/main/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandler.java
   AL    src/main/java/org/apache/commons/dbutils/handlers/ScalarHandler.java
+  AL    src/main/java/org/apache/commons/dbutils/MyBenchmark.java
   AL    src/main/java/org/apache/commons/dbutils/OutParameter.java
   AL    src/main/java/org/apache/commons/dbutils/package-info.java
   AL    src/main/java/org/apache/commons/dbutils/PropertyHandler.java
@@ -142,7 +143,6 @@ Generated files do not require license headers.
   AL    src/test/java/org/apache/commons/dbutils/handlers/ScalarHandlerTest.java
   AL    src/test/java/org/apache/commons/dbutils/MockResultSet.java
   AL    src/test/java/org/apache/commons/dbutils/MockResultSetMetaData.java
-  AL    src/test/java/org/apache/commons/dbutils/MyBenchmark.java
   AL    src/test/java/org/apache/commons/dbutils/OutParameterTest.java
   AL    src/test/java/org/apache/commons/dbutils/ProxyFactoryTest.java
   AL    src/test/java/org/apache/commons/dbutils/QueryLoaderTest.java
