@@ -25,6 +25,7 @@ import org.openjdk.jmh.annotations.Measurement;
 import org.openjdk.jmh.annotations.Fork;
 import org.openjdk.jmh.annotations.Threads;
 import org.openjdk.jmh.annotations.Setup;
+import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Level;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
@@ -34,6 +35,7 @@ import org.openjdk.jmh.runner.options.OptionsBuilder;
 
 import java.util.concurrent.TimeUnit;
 
+@State(org.openjdk.jmh.annotations.Scope.Thread)
 @Fork(1)
 @Threads(1)
 @Warmup(iterations = 5)
