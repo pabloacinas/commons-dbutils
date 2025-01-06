@@ -2,14 +2,14 @@
 *****************************************************
 Summary
 -------
-Generated at: 2025-01-04T13:28:43+01:00
+Generated at: 2025-01-06T03:29:19+01:00
 
 Notes: 3
-Binaries: 1
+Binaries: 2
 Archives: 0
-Standards: 128
+Standards: 129
 
-Apache Licensed: 128
+Apache Licensed: 129
 Generated Documents: 0
 
 JavaDocs are generated, thus a license header is optional.
@@ -31,6 +31,7 @@ Generated files do not require license headers.
   AL    .github/workflows/scorecards-analysis.yml
   AL    CODE_OF_CONDUCT.md
   AL    CONTRIBUTING.md
+  B     jmh-result.json
   N     LICENSE.txt
   N     NOTICE.txt
   AL    pom.xml
@@ -141,6 +142,7 @@ Generated files do not require license headers.
   AL    src/test/java/org/apache/commons/dbutils/handlers/ScalarHandlerTest.java
   AL    src/test/java/org/apache/commons/dbutils/MockResultSet.java
   AL    src/test/java/org/apache/commons/dbutils/MockResultSetMetaData.java
+  AL    src/test/java/org/apache/commons/dbutils/MyBenchmark.java
   AL    src/test/java/org/apache/commons/dbutils/OutParameterTest.java
   AL    src/test/java/org/apache/commons/dbutils/ProxyFactoryTest.java
   AL    src/test/java/org/apache/commons/dbutils/QueryLoaderTest.java

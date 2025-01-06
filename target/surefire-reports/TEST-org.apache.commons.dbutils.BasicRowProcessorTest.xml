@@ -1,69 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.apache.commons.dbutils.BasicRowProcessorTest" time="0.153" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.apache.commons.dbutils.BasicRowProcessorTest" time="0.146" tests="8" errors="0" skipped="0" failures="0">
   <properties>
-    <property name="java.specification.version" value="19"/>
+    <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\Usuario\git\commons-dbutils\target\test-classes;C:\Users\Usuario\git\commons-dbutils\target\classes;C:\Users\Usuario\.m2\repository\org\junit\jupiter\junit-jupiter\5.11.2\junit-jupiter-5.11.2.jar;C:\Users\Usuario\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.2\junit-jupiter-api-5.11.2.jar;C:\Users\Usuario\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Usuario\.m2\repository\org\junit\platform\junit-platform-commons\1.11.2\junit-platform-commons-1.11.2.jar;C:\Users\Usuario\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Usuario\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.2\junit-jupiter-params-5.11.2.jar;C:\Users\Usuario\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.2\junit-jupiter-engine-5.11.2.jar;C:\Users\Usuario\.m2\repository\org\junit\platform\junit-platform-engine\1.11.2\junit-platform-engine-1.11.2.jar;C:\Users\Usuario\.m2\repository\org\mockito\mockito-junit-jupiter\5.15.2\mockito-junit-jupiter-5.15.2.jar;C:\Users\Usuario\.m2\repository\org\mockito\mockito-core\5.15.2\mockito-core-5.15.2.jar;C:\Users\Usuario\.m2\repository\net\bytebuddy\byte-buddy\1.15.11\byte-buddy-1.15.11.jar;C:\Users\Usuario\.m2\repository\net\bytebuddy\byte-buddy-agent\1.15.11\byte-buddy-agent-1.15.11.jar;C:\Users\Usuario\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\Usuario\.m2\repository\org\apache\commons\commons-lang3\3.17.0\commons-lang3-3.17.0.jar;"/>
-    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.class.path" value="C:\Users\suso1\git\commons-dbutils\target\test-classes;C:\Users\suso1\git\commons-dbutils\target\classes;C:\Users\suso1\.m2\repository\org\junit\jupiter\junit-jupiter\5.11.2\junit-jupiter-5.11.2.jar;C:\Users\suso1\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.2\junit-jupiter-api-5.11.2.jar;C:\Users\suso1\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\suso1\.m2\repository\org\junit\platform\junit-platform-commons\1.11.2\junit-platform-commons-1.11.2.jar;C:\Users\suso1\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\suso1\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.2\junit-jupiter-params-5.11.2.jar;C:\Users\suso1\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.2\junit-jupiter-engine-5.11.2.jar;C:\Users\suso1\.m2\repository\org\junit\platform\junit-platform-engine\1.11.2\junit-platform-engine-1.11.2.jar;C:\Users\suso1\.m2\repository\org\mockito\mockito-junit-jupiter\5.15.2\mockito-junit-jupiter-5.15.2.jar;C:\Users\suso1\.m2\repository\org\mockito\mockito-core\5.15.2\mockito-core-5.15.2.jar;C:\Users\suso1\.m2\repository\net\bytebuddy\byte-buddy\1.15.11\byte-buddy-1.15.11.jar;C:\Users\suso1\.m2\repository\net\bytebuddy\byte-buddy-agent\1.15.11\byte-buddy-agent-1.15.11.jar;C:\Users\suso1\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\suso1\.m2\repository\org\apache\commons\commons-lang3\3.17.0\commons-lang3-3.17.0.jar;C:\Users\suso1\.m2\repository\org\openjdk\jmh\jmh-core\1.37\jmh-core-1.37.jar;C:\Users\suso1\.m2\repository\net\sf\jopt-simple\jopt-simple\5.0.4\jopt-simple-5.0.4.jar;C:\Users\suso1\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar;C:\Users\suso1\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\1.37\jmh-generator-annprocess-1.37.jar;"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
-    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
     <property name="user.timezone" value="Europe/Madrid"/>
     <property name="os.name" value="Windows 11"/>
-    <property name="java.vm.specification.version" value="19"/>
+    <property name="java.vm.specification.version" value="17"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="ES"/>
-    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-19\bin"/>
-    <property name="sun.java.command" value="C:\Users\Usuario\AppData\Local\Temp\surefire15506001957716704077\surefirebooter-20250104132849221_3.jar C:\Users\Usuario\AppData\Local\Temp\surefire15506001957716704077 2025-01-04T13-28-49_086-jvmRun1 surefire-20250104132849221_1tmp surefire_0-20250104132849221_2tmp"/>
+    <property name="sun.boot.library.path" value="C:\Users\suso1\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.2.v20220201-1208\jre\bin"/>
+    <property name="sun.java.command" value="C:\Users\suso1\AppData\Local\Temp\surefire10837870310315051133\surefirebooter-20250106032902976_3.jar C:\Users\suso1\AppData\Local\Temp\surefire10837870310315051133 2025-01-06T03-29-02_845-jvmRun1 surefire-20250106032902976_1tmp surefire_0-20250106032902976_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="C:\Users\Usuario\git\commons-dbutils\target\test-classes;C:\Users\Usuario\git\commons-dbutils\target\classes;C:\Users\Usuario\.m2\repository\org\junit\jupiter\junit-jupiter\5.11.2\junit-jupiter-5.11.2.jar;C:\Users\Usuario\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.2\junit-jupiter-api-5.11.2.jar;C:\Users\Usuario\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Usuario\.m2\repository\org\junit\platform\junit-platform-commons\1.11.2\junit-platform-commons-1.11.2.jar;C:\Users\Usuario\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Usuario\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.2\junit-jupiter-params-5.11.2.jar;C:\Users\Usuario\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.2\junit-jupiter-engine-5.11.2.jar;C:\Users\Usuario\.m2\repository\org\junit\platform\junit-platform-engine\1.11.2\junit-platform-engine-1.11.2.jar;C:\Users\Usuario\.m2\repository\org\mockito\mockito-junit-jupiter\5.15.2\mockito-junit-jupiter-5.15.2.jar;C:\Users\Usuario\.m2\repository\org\mockito\mockito-core\5.15.2\mockito-core-5.15.2.jar;C:\Users\Usuario\.m2\repository\net\bytebuddy\byte-buddy\1.15.11\byte-buddy-1.15.11.jar;C:\Users\Usuario\.m2\repository\net\bytebuddy\byte-buddy-agent\1.15.11\byte-buddy-agent-1.15.11.jar;C:\Users\Usuario\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\Usuario\.m2\repository\org\apache\commons\commons-lang3\3.17.0\commons-lang3-3.17.0.jar;"/>
+    <property name="surefire.test.class.path" value="C:\Users\suso1\git\commons-dbutils\target\test-classes;C:\Users\suso1\git\commons-dbutils\target\classes;C:\Users\suso1\.m2\repository\org\junit\jupiter\junit-jupiter\5.11.2\junit-jupiter-5.11.2.jar;C:\Users\suso1\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.2\junit-jupiter-api-5.11.2.jar;C:\Users\suso1\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\suso1\.m2\repository\org\junit\platform\junit-platform-commons\1.11.2\junit-platform-commons-1.11.2.jar;C:\Users\suso1\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\suso1\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.2\junit-jupiter-params-5.11.2.jar;C:\Users\suso1\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.2\junit-jupiter-engine-5.11.2.jar;C:\Users\suso1\.m2\repository\org\junit\platform\junit-platform-engine\1.11.2\junit-platform-engine-1.11.2.jar;C:\Users\suso1\.m2\repository\org\mockito\mockito-junit-jupiter\5.15.2\mockito-junit-jupiter-5.15.2.jar;C:\Users\suso1\.m2\repository\org\mockito\mockito-core\5.15.2\mockito-core-5.15.2.jar;C:\Users\suso1\.m2\repository\net\bytebuddy\byte-buddy\1.15.11\byte-buddy-1.15.11.jar;C:\Users\suso1\.m2\repository\net\bytebuddy\byte-buddy-agent\1.15.11\byte-buddy-agent-1.15.11.jar;C:\Users\suso1\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\suso1\.m2\repository\org\apache\commons\commons-lang3\3.17.0\commons-lang3-3.17.0.jar;C:\Users\suso1\.m2\repository\org\openjdk\jmh\jmh-core\1.37\jmh-core-1.37.jar;C:\Users\suso1\.m2\repository\net\sf\jopt-simple\jopt-simple\5.0.4\jopt-simple-5.0.4.jar;C:\Users\suso1\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar;C:\Users\suso1\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\1.37\jmh-generator-annprocess-1.37.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="user.home" value="C:\Users\Usuario"/>
+    <property name="user.home" value="C:\Users\suso1"/>
     <property name="user.language" value="es"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.version.date" value="2023-01-17"/>
-    <property name="java.home" value="C:\Program Files\Java\jdk-19"/>
+    <property name="java.version.date" value="2022-01-18"/>
+    <property name="java.home" value="C:\Users\suso1\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.2.v20220201-1208\jre"/>
     <property name="file.separator" value="\"/>
-    <property name="basedir" value="C:\Users\Usuario\git\commons-dbutils"/>
+    <property name="basedir" value="C:\Users\suso1\git\commons-dbutils"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\Usuario\AppData\Local\Temp\surefire15506001957716704077\surefirebooter-20250104132849221_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\suso1\AppData\Local\Temp\surefire10837870310315051133\surefirebooter-20250106032902976_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="java.runtime.version" value="19.0.2+7-44"/>
-    <property name="user.name" value="Usuario"/>
-    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="java.runtime.version" value="17.0.2+8"/>
+    <property name="user.name" value="suso1"/>
     <property name="path.separator" value=";"/>
     <property name="os.version" value="10.0"/>
-    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
-    <property name="file.encoding" value="UTF-8"/>
-    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
-    <property name="localRepository" value="C:\Users\Usuario\.m2\repository"/>
-    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
-    <property name="java.io.tmpdir" value="C:\Users\Usuario\AppData\Local\Temp\"/>
-    <property name="java.version" value="19.0.2"/>
-    <property name="user.dir" value="C:\Users\Usuario\git\commons-dbutils"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-17.0.2+8"/>
+    <property name="localRepository" value="C:\Users\suso1\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="C:\Users\suso1\AppData\Local\Temp\"/>
+    <property name="java.version" value="17.0.2"/>
+    <property name="user.dir" value="C:\Users\suso1\git\commons-dbutils"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="native.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-19\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Siemens\Automation\Simatic OAM\bin;C:\Program Files (x86)\Common Files\Siemens\Bin;C:\Program Files (x86)\Common Files\Siemens\CommonArchiving;C:\Program Files (x86)\Common Files\Siemens\ACE\Bin;C:\Program Files (x86)\Siemens\Automation\SCADA-RT_V11\WinCC\Bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\PuTTY\;C:\Program Files\dotnet\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\Siemens\Automation\SCADA-RT_V11\WinCC\Interfaces;C:\Program Files (x86)\Common Files\Siemens\;C:\Program Files (x86)\Common Files\Siemens\Interfaces;C:\Program Files (x86)\Common Files\Siemens\ACE\Interfaces;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files\PowerShell\7\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files\Kubernetes\Minikube;;C:\minikube;C:\Program Files\Docker\Docker\resources\bin;C:\Users\Usuario\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\Usuario\AppData\Local\Programs\Python\Python311\;C:\Users\Usuario\AppData\Local\Microsoft\WindowsApps;C:\Users\Usuario\AppData\Local\Programs\Microsoft VS Code\bin;C:\MinGW\bin;C:\Users\Usuario\AppData\Local\Programs\Python\Python311;C:\Users\Usuario\AppData\Local\Programs\Python\Python311\Scripts;C:\Users\Usuario\.dotnet\tools;C:\Users\Usuario\Downloads\apache-maven-3.9.9-bin\apache-maven-3.9.9\bin;C:\Program Files\RabbitMQ Server\rabbitmq_server-4.0.3\sbin;;."/>
-    <property name="java.vm.info" value="mixed mode, sharing"/>
-    <property name="stderr.encoding" value="Cp1252"/>
-    <property name="java.vendor" value="Oracle Corporation"/>
-    <property name="java.vm.version" value="19.0.2+7-44"/>
+    <property name="java.library.path" value="C:\Users\suso1\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.2.v20220201-1208\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Users/suso1/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_11.0.14.v20220314-1349/jre/bin/server;C:/Users/suso1/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_11.0.14.v20220314-1349/jre/bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\PuTTY\;C:\MinGW\bin;C:\Program Files\Kubernetes\Minikube;C:\Program Files\RabbitMQ Server\rabbitmq_server-4.0.3\sbin;C:\Program Files\Docker\Docker\resources\bin;C:\Users\suso1\AppData\Local\Programs\Python\Python39;C:\Users\suso1\Downloads\apache-maven-3.9.9-bin\apache-maven-3.9.9\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\MinGW\bin;C:\Users\suso1\AppData\Roaming\Racket\8.11.1\;C:\Program Files\Racket\;C:\Users\suso1\AppData\Local\Microsoft\WindowsApps;C:\Users\suso1\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\suso1\Downloads\apache-maven-3.9.9-bin\apache-maven-3.9.9\bin;C:\Users\suso1\AppData\Local\Programs\Python\Python39\Scripts;C:\Users\suso1\AppData\Local\Programs\Python\Python39;;C:\Program Files\JetBrains\PyCharm 2024.3\bin;;C:\Users\suso1\AppData\Roaming\npm;C:\WINDOWS\system32;;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="17.0.2+8"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
-    <property name="java.class.version" value="63.0"/>
+    <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testResultSets" classname="org.apache.commons.dbutils.BasicRowProcessorTest" time="0.001"/>
+  <testcase name="testResultSets" classname="org.apache.commons.dbutils.BasicRowProcessorTest" time="0.002"/>
   <testcase name="testCheckDataSizes" classname="org.apache.commons.dbutils.BasicRowProcessorTest" time="0.001"/>
-  <testcase name="testToArray" classname="org.apache.commons.dbutils.BasicRowProcessorTest" time="0.002"/>
-  <testcase name="testToMap" classname="org.apache.commons.dbutils.BasicRowProcessorTest" time="0.003"/>
-  <testcase name="testToBeanList" classname="org.apache.commons.dbutils.BasicRowProcessorTest" time="0.119"/>
+  <testcase name="testToArray" classname="org.apache.commons.dbutils.BasicRowProcessorTest" time="0.003"/>
+  <testcase name="testToMap" classname="org.apache.commons.dbutils.BasicRowProcessorTest" time="0.004"/>
+  <testcase name="testToBeanList" classname="org.apache.commons.dbutils.BasicRowProcessorTest" time="0.105"/>
   <testcase name="testPutAllContainsKeyAndRemove" classname="org.apache.commons.dbutils.BasicRowProcessorTest" time="0.002"/>
-  <testcase name="testToMapOrdering" classname="org.apache.commons.dbutils.BasicRowProcessorTest" time="0.0"/>
+  <testcase name="testToMapOrdering" classname="org.apache.commons.dbutils.BasicRowProcessorTest" time="0.001"/>
   <testcase name="testToBean" classname="org.apache.commons.dbutils.BasicRowProcessorTest" time="0.001"/>
 </testsuite>

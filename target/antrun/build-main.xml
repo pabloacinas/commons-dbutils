@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="maven-antrun-" default="main">
   <target name="main">
-    <copy todir="C:\Users\Usuario\git\commons-dbutils\target/apidocs/META-INF">
-      <fileset dir="C:\Users\Usuario\git\commons-dbutils">
+    <copy todir="C:\Users\suso1\git\commons-dbutils\target/apidocs/META-INF">
+      <fileset dir="C:\Users\suso1\git\commons-dbutils">
         <include name="LICENSE.txt" />
         <include name="NOTICE.txt" />
         <include name="LICENSE" />

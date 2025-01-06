@@ -5,3 +5,5 @@ target/
 /.settings/
 /.classpath
 tags
+/.apt_generated/
+/.apt_generated_tests/
