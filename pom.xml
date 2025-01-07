@@ -165,6 +165,8 @@
                 <excludes>
                     <exclude>dependency-reduced-pom.xml</exclude>
                     <exclude>**/randoop-tests/**</exclude>
+                    <exclude>src/main/java/org/apache/commons/dbutils/RegressionTest.java</exclude>
+          			<exclude>src/main/java/org/apache/commons/dbutils/RegressionTest0.java</exclude>
                 </excludes>
         </configuration>
         <executions>
