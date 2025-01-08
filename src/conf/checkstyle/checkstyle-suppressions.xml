@@ -13,9 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 -->
-<!DOCTYPE suppressions PUBLIC
-    "-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN"
-    "https://checkstyle.org/dtds/suppressions_1_2.dtd">
+<!DOCTYPE suppressions PUBLIC "-//Puppy Crawl//DTD Suppressions 1.1//EN" "http://checkstyle.sourceforge.net/dtds/suppressions_1_1.dtd">
 <suppressions>
   <suppress checks="Header" files="NOTICE.txt" />
   <suppress checks="Header" files="LICENSE.txt" />
@@ -31,4 +29,9 @@
   <suppress checks="MethodName" files=".*[/\\]test[/\\].*" />
   <suppress checks="VisibilityModifier" files="AbstractQueryRunner" lines="54"/>
   <suppress checks="VisibilityModifier" files="KeyedHandler" lines="58, 63, 69"/>
+  <suppress checks="Header" files="src/main/java/org/apache/commons/dbutils/MyBenchmark.java"/>
+  <suppress checks="MagicNumber" files="src/main/java/org/apache/commons/dbutils/MyBenchmark.java"/>
+  <suppress checks="Header" files="target/generated-sources/annotations/org/apache/commons/dbutils/jmh_generated/.*"/>
+  <suppress checks="Naming" files="target/generated-sources/annotations/org/apache/commons/dbutils/jmh_generated/.*"/>
+  <suppress checks="VisibilityModifier" files="target/generated-sources/annotations/org/apache/commons/dbutils/jmh_generated/.*"/>
 </suppressions>
