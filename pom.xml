@@ -184,8 +184,8 @@
 	            <exclude>**/BaseResultSetHandler.class</exclude>
 	            <exclude>**/MyBenchmark*</exclude>
 	            <exclude>**/dependency-check-report.html</exclude>
-            	<exclude>**/reportFindSecBugs.html</exclude>
-            	<exclude>**/.gitignore</exclude>
+            	    <exclude>**/reportFindSecBugs.html</exclude>
+            	    <exclude>**/.gitignore</exclude>
 	        </excludes>
     	</configuration>
         <executions>
