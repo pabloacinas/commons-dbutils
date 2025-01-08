@@ -164,6 +164,9 @@
                     <exclude>dependency-reduced-pom.xml</exclude>
                     <exclude>**/randoop-tests/**</exclude>
                     <exclude>find-sec-bugs/**</exclude>
+		    <exclude>**/dependency-check-report.html</exclude>
+    		    <exclude>**/reportFindSecBugs.html</exclude>
+    		    <exclude>**/.gitignore</exclude>
                 </excludes>
         </configuration>
         <executions>
@@ -183,9 +186,6 @@
 	            <exclude>**/jmh_generated/**</exclude>
 	            <exclude>**/BaseResultSetHandler.class</exclude>
 	            <exclude>**/MyBenchmark*</exclude>
-	            <exclude>dependency-check-report.html</exclude>
-                    <exclude>reportFindSecBugs.html</exclude>
-                    <exclude>.gitignore</exclude>
 	        </excludes>
     	</configuration>
         <executions>
